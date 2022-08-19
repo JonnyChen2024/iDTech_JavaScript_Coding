@@ -1,6 +1,6 @@
-const pacMen = []; // This array holds all the pacmen
+const pacMen = []; //array holds all the pacmen
 
-// This function returns an object with random values
+//returns an object with random values
 function setToRandom(scale) {
   return {
     x: Math.random() * scale,
@@ -8,10 +8,10 @@ function setToRandom(scale) {
   };
 }
 
-// Factory to make a PacMan at a random position with random velocity
+//make a PacMan at a random position with random velocity
 function makePac() {
-  // returns an object with random values scaled {x: 33, y: 21}
-  let velocity = setToRandom(10); // {x:?, y:?}
+  // returns an object with random values scaled
+  let velocity = setToRandom(10);
   let position = setToRandom(200);
 
   // Add image to div id = game
@@ -21,11 +21,11 @@ function makePac() {
   newimg.src = './images/PacMan1.png';
   newimg.width = 100;
 
-  // TODO: set position here
+  //set random position
   newimg.style.top = position.y;
   newimg.style.left = position.x;
 
-  // TODO add new Child image to game
+  //add new pacman image to game
   game.appendChild(newimg);
 
   // return details in an object
@@ -37,7 +37,7 @@ function makePac() {
 }
 
 function update() {
-  // loop over pacmen array and move each one and move image in DOM
+  // loop over pacmen array and move each one
   pacMen.forEach((item) => {
     checkCollisions(item);
     item.position.x += item.velocity.x;
@@ -50,7 +50,7 @@ function update() {
 }
 
 function checkCollisions(item) {
-  // TODO: detect collision with all walls and make pacman bounce
+  //detect collision with all walls and make pacman bounce
   if(item.position.x > window.innerWidth-item.newimg.width || item.position.x < 0){
     item.velocity.x = -item.velocity.x;
   }
